@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib import admin
-from django.contrib.contenttypes.fields import GenericTabularInline
+from django.contrib.contenttypes.admin import GenericTabularInline
 from django.forms.models import ModelForm
 from django.utils.translation import ugettext as _
 

@@ -20,7 +20,7 @@ class Translation(models.Model):
     """
     Model that stores all translations
     """
-    content_type = models.ForeignKey(ContentType)
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey()
     lang = models.CharField(max_length=5, db_index=True)

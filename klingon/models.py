@@ -1,5 +1,8 @@
 from django.conf import settings
-from django.core import urlresolvers
+try:
+    from django.core import urlresolvers
+except ModuleNotFoundError:
+    from django import urls as urlresolvers
 from django.core.cache import cache
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.generic import GenericForeignKey

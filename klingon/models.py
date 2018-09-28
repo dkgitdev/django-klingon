@@ -2,7 +2,11 @@ from django.conf import settings
 from django import urls as urlresolvers
 from django.core.cache import cache
 from django.contrib.contenttypes.models import ContentType
-from django.contrib.contenttypes.fields import GenericForeignKey
+from django import VERSION
+if VERSION < (2, 0):
+    from django.contrib.contenttypes.generic import GenericForeignKey
+else:
+    from django.contrib.contenttypes.fields import GenericForeignKey
 from django.db import models
 from django.utils.translation import ugettext as _
 

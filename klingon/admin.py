@@ -1,6 +1,10 @@
 from django import forms
 from django.contrib import admin
-from django.contrib.contenttypes.admin import GenericTabularInline
+from django import VERSION
+if VERSION < (2, 0):
+    from django.contrib.contenttypes.fields import GenericTabularInline
+else:
+    from django.contrib.contenttypes.admin import GenericTabularInline
 from django.forms.models import ModelForm
 from django.utils.translation import ugettext as _
 
@@ -29,6 +33,7 @@ class TranslationInlineForm(ModelForm):
 
     class Meta:
         model = Translation
+        exclude = ()
 
     def __init__(self, *args, **kwargs):
        res = super(TranslationInlineForm, self).__init__(*args, **kwargs)
